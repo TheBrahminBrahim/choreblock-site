@@ -140,10 +140,11 @@
       gap: 20px;
     }
     .step {
+      position: relative;
       background: var(--paper);
       border: 1px solid var(--rule);
       border-radius: 16px;
-      padding: 18px 18px 26px;
+      padding: 30px 18px 26px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
@@ -175,15 +176,17 @@
     .tag.ok { background: #16A34A; color: #fff; }
     .step-num {
       position: absolute;
-      top: 10px; left: 10px;
+      top: -17px; left: 50%;
+      transform: translateX(-50%);
       z-index: 2;
       display: inline-flex; align-items: center; justify-content: center;
-      width: 30px; height: 30px;
+      width: 34px; height: 34px;
       border-radius: 50%;
       background: var(--blue);
       color: #fff;
-      font-weight: 800; font-size: 14px;
-      box-shadow: 0 1px 3px rgba(16, 49, 74, 0.28);
+      font-weight: 800; font-size: 15px;
+      border: 3px solid var(--paper);
+      box-shadow: 0 2px 6px rgba(16, 49, 74, 0.22);
     }
     .step h3 {
       display: flex; align-items: flex-start;
@@ -380,8 +383,8 @@
       <p class="sub">Three steps between you and your apps — less screen time and a tidier home, every single day.</p>
       <div class="steps">
         <div class="step">
+          <span class="step-num">1</span>
           <div class="step-visual">
-            <span class="step-num">1</span>
             <img src="/img/sink.jpg" alt="A clean, empty kitchen sink — the baseline photo" loading="lazy" />
             <span class="tag">Your baseline</span>
           </div>
@@ -389,8 +392,8 @@
           <p>Pick your chores and snap a photo of each spot looking tidy. That photo becomes your &lsquo;clean&rsquo; baseline.</p>
         </div>
         <div class="step">
+          <span class="step-num">2</span>
           <div class="step-visual locked">
-            <span class="step-num">2</span>
             <img src="/img/sink-dirty.jpg" alt="A kitchen sink full of dirty dishes" loading="lazy" />
             <div class="scrim"></div>
             <div class="apps" aria-label="Instagram, TikTok and YouTube, locked">
@@ -412,8 +415,8 @@
           <p>Each chore has its own rhythm — dishes daily, the dog walk twice a day. The moment one is due, your chosen apps lock automatically.</p>
         </div>
         <div class="step">
+          <span class="step-num">3</span>
           <div class="step-visual compare-wrap">
-            <span class="step-num">3</span>
             <div class="compare" aria-label="Baseline photo compared with a live photo of the same sink">
               <div class="pane">
                 <img src="/img/sink.jpg" alt="The baseline photo of the clean sink" loading="lazy" />
