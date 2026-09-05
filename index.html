@@ -143,20 +143,113 @@
       background: var(--paper);
       border: 1px solid var(--rule);
       border-radius: 16px;
-      padding: 26px 22px;
+      padding: 18px 18px 26px;
       box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .step-visual {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--mist);
+      margin-bottom: 18px;
+    }
+    .step-visual img {
+      display: block;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .tag {
+      position: absolute;
+      left: 10px; bottom: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 5px 10px;
+      border-radius: 999px;
+      box-shadow: 0 1px 3px rgba(16, 49, 74, 0.18);
+    }
+    .tag.ok { background: #16A34A; color: #fff; }
+    .step-head {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-bottom: 8px;
     }
     .step-num {
+      flex: 0 0 auto;
       display: inline-flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px;
+      width: 30px; height: 30px;
       border-radius: 50%;
       background: var(--blue);
       color: #fff;
-      font-weight: 800; font-size: 16px;
-      margin-bottom: 14px;
+      font-weight: 800; font-size: 14px;
     }
-    .step h3 { margin: 0 0 8px; font-size: 18px; }
+    .step h3 { margin: 0; font-size: 18px; line-height: 30px; }
     .step p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+    /* Step 2: locked app icons over the messy sink */
+    .locked .scrim {
+      position: absolute; inset: 0;
+      background: rgba(16, 49, 74, 0.14);
+    }
+    .apps {
+      position: absolute; inset: 0;
+      display: flex; align-items: flex-start; justify-content: center;
+      padding-top: 16%;
+      gap: 14px;
+    }
+    .app {
+      position: relative;
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      filter: saturate(0.55);
+    }
+    .app svg { width: 32px; height: 32px; display: block; }
+    .app.ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .app.tt { background: #010101; }
+    .app.yt { background: #FF0000; }
+    .lock {
+      position: absolute;
+      right: -7px; bottom: -7px;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--ink);
+      border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lock svg { width: 12px; height: 12px; display: block; }
+
+    /* Step 3: baseline vs. live photo */
+    .compare {
+      position: absolute; inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      padding: 6px;
+    }
+    .compare .pane {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .compare .pane img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .compare .pane .tag { left: 8px; bottom: 8px; font-size: 11px; padding: 4px 8px; }
+    .compare .verdict {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: #16A34A;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .compare .verdict svg { width: 18px; height: 18px; display: block; }
 
     /* Chores */
     #chores .wrap { max-width: 1240px; }
@@ -199,16 +292,31 @@
       font-size: 16px;
     }
     .privacy-strip .badges {
-      display: flex; flex-wrap: wrap; gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 200px));
+      gap: 14px;
       justify-content: center;
-      margin-top: 24px;
+      margin-top: 32px;
     }
     .privacy-strip .badge {
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 999px;
-      padding: 8px 16px;
-      font-size: 13.5px;
-      color: rgba(255, 255, 255, 0.9);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 22px 16px 20px;
+      font-size: 14px; font-weight: 600;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.3;
+    }
+    .privacy-strip .badge svg {
+      width: 28px; height: 28px; display: block;
+      color: var(--blue);
+    }
+    @media (max-width: 560px) {
+      .privacy-strip .badges { grid-template-columns: 1fr; max-width: 280px; margin-left: auto; margin-right: auto; }
+      .privacy-strip .badge { flex-direction: row; justify-content: flex-start; padding: 14px 16px; text-align: left; }
+      .privacy-strip .badge svg { width: 22px; height: 22px; }
     }
 
     /* Footer */
@@ -267,18 +375,50 @@
       <p class="sub">Three steps between you and your apps — and a tidier home every single day.</p>
       <div class="steps">
         <div class="step">
-          <span class="step-num">1</span>
-          <h3>Set your chores</h3>
-          <p>Pick your chores and snap a photo of each spot looking tidy. That photo becomes your personal baseline — the standard your future self has to meet.</p>
+          <div class="step-visual">
+            <img src="/img/sink.jpg" alt="A clean, empty kitchen sink — the baseline photo" loading="lazy" />
+            <span class="tag">Your baseline</span>
+          </div>
+          <div class="step-head"><span class="step-num">1</span><h3>Set your chores</h3></div>
+          <p>Pick your chores and snap a photo of each spot looking tidy. That photo becomes your &lsquo;clean&rsquo; baseline.</p>
         </div>
         <div class="step">
-          <span class="step-num">2</span>
-          <h3>Apps lock when chores are due</h3>
+          <div class="step-visual locked">
+            <img src="/img/sink-dirty.jpg" alt="A kitchen sink full of dirty dishes" loading="lazy" />
+            <div class="scrim"></div>
+            <div class="apps" aria-label="Instagram, TikTok and YouTube, locked">
+              <span class="app ig" title="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="#fff" stroke="none"/></svg>
+                <span class="lock"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4V7Z"/></svg></span>
+              </span>
+              <span class="app tt" title="TikTok">
+                <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 3.4-2.46V9.66a5.7 5.7 0 0 0-.81-.06 5.65 5.65 0 0 0-5.65 5.65 5.65 5.65 0 0 0 5.65 5.65 5.65 5.65 0 0 0 5.65-5.65V9.01a7.35 7.35 0 0 0 4.29 1.38V7.3a4.3 4.3 0 0 1-3.2-1.48Z"/></svg>
+                <span class="lock"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4V7Z"/></svg></span>
+              </span>
+              <span class="app yt" title="YouTube">
+                <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.28 5 12 5 12 5s-6.28 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.72 19 12 19 12 19s6.28 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg>
+                <span class="lock"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4V7Z"/></svg></span>
+              </span>
+            </div>
+          </div>
+          <div class="step-head"><span class="step-num">2</span><h3>When a chore is due, apps are locked</h3></div>
           <p>Each chore has its own rhythm — dishes daily, the dog walk twice a day. The moment one is due, your chosen apps lock automatically.</p>
         </div>
         <div class="step">
-          <span class="step-num">3</span>
-          <h3>Prove it with a photo</h3>
+          <div class="step-visual compare-wrap">
+            <div class="compare" aria-label="Baseline photo compared with a live photo of the same sink">
+              <div class="pane">
+                <img src="/img/sink.jpg" alt="The baseline photo of the clean sink" loading="lazy" />
+                <span class="tag">Baseline</span>
+              </div>
+              <div class="pane">
+                <img src="/img/sink-after.jpg" alt="A live photo of the same clean sink from a different angle" loading="lazy" />
+                <span class="tag">Just now</span>
+              </div>
+              <span class="verdict" title="Match"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            </div>
+          </div>
+          <div class="step-head"><span class="step-num">3</span><h3>Prove it with a photo</h3></div>
           <p>Do the chore, snap a live photo, and AI compares it to your baseline. Pass the check and your apps unlock until the next chore comes due.</p>
         </div>
       </div>
@@ -336,9 +476,18 @@
       train anything. Capture is camera-only, so old photos from your library can't be used to cheat.
     </p>
     <div class="badges">
-      <span class="badge">📷 Camera-only capture</span>
-      <span class="badge">🗑️ Verified, then deleted</span>
-      <span class="badge">🔒 Built on Apple Screen Time</span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.6l1.3-2h5.2l1.3 2h1.6A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-8Z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
+        Camera-only capture
+      </span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M9.5 7V4.5h5V7"/><path d="M6.5 7l.8 12a1.5 1.5 0 0 0 1.5 1.4h6.4a1.5 1.5 0 0 0 1.5-1.4l.8-12"/><path d="M10 11v6M14 11v6"/></svg>
+        Verified, then deleted
+      </span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5V6l7-3Z"/><rect x="9.25" y="11" width="5.5" height="4.5" rx="1"/><path d="M10.5 11V9.75a1.5 1.5 0 0 1 3 0V11"/></svg>
+        Built on Apple Screen Time
+      </span>
     </div>
   </div>
 
