@@ -173,20 +173,24 @@
       box-shadow: 0 1px 3px rgba(16, 49, 74, 0.18);
     }
     .tag.ok { background: #16A34A; color: #fff; }
-    .step-head {
-      display: flex; align-items: flex-start; gap: 12px;
-      margin-bottom: 8px;
-    }
     .step-num {
-      flex: 0 0 auto;
+      position: absolute;
+      top: 10px; left: 10px;
+      z-index: 2;
       display: inline-flex; align-items: center; justify-content: center;
       width: 30px; height: 30px;
       border-radius: 50%;
       background: var(--blue);
       color: #fff;
       font-weight: 800; font-size: 14px;
+      box-shadow: 0 1px 3px rgba(16, 49, 74, 0.28);
     }
-    .step h3 { margin: 0; font-size: 18px; line-height: 30px; }
+    .step h3 {
+      display: flex; align-items: flex-start;
+      min-height: 47px;
+      margin: 0 0 8px;
+      font-size: 18px; line-height: 1.3;
+    }
     .step p { margin: 0; color: var(--ink-soft); font-size: 15px; }
 
     /* Step 2: locked app icons over the messy sink */
@@ -376,14 +380,16 @@
       <div class="steps">
         <div class="step">
           <div class="step-visual">
+            <span class="step-num">1</span>
             <img src="/img/sink.jpg" alt="A clean, empty kitchen sink — the baseline photo" loading="lazy" />
             <span class="tag">Your baseline</span>
           </div>
-          <div class="step-head"><span class="step-num">1</span><h3>Set your chores</h3></div>
+          <h3>Set your chores</h3>
           <p>Pick your chores and snap a photo of each spot looking tidy. That photo becomes your &lsquo;clean&rsquo; baseline.</p>
         </div>
         <div class="step">
           <div class="step-visual locked">
+            <span class="step-num">2</span>
             <img src="/img/sink-dirty.jpg" alt="A kitchen sink full of dirty dishes" loading="lazy" />
             <div class="scrim"></div>
             <div class="apps" aria-label="Instagram, TikTok and YouTube, locked">
@@ -401,11 +407,12 @@
               </span>
             </div>
           </div>
-          <div class="step-head"><span class="step-num">2</span><h3>When a chore is due, apps are locked</h3></div>
+          <h3>When a chore is due, apps are locked</h3>
           <p>Each chore has its own rhythm — dishes daily, the dog walk twice a day. The moment one is due, your chosen apps lock automatically.</p>
         </div>
         <div class="step">
           <div class="step-visual compare-wrap">
+            <span class="step-num">3</span>
             <div class="compare" aria-label="Baseline photo compared with a live photo of the same sink">
               <div class="pane">
                 <img src="/img/sink.jpg" alt="The baseline photo of the clean sink" loading="lazy" />
@@ -418,7 +425,7 @@
               <span class="verdict" title="Match"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
             </div>
           </div>
-          <div class="step-head"><span class="step-num">3</span><h3>Prove it with a photo</h3></div>
+          <h3>Prove it with a photo</h3>
           <p>Do the chore, snap a live photo, and AI compares it to your baseline. Pass the check and your apps unlock until the next chore comes due.</p>
         </div>
       </div>
