@@ -133,6 +133,51 @@
       margin: 0 auto 44px;
     }
 
+    /* Outcomes */
+    .outcomes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .outcome {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      padding: 28px 26px 30px;
+      box-shadow: var(--shadow);
+    }
+    .outcome-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(30, 155, 240, 0.12);
+      color: var(--blue-deep);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .outcome-icon svg { width: 28px; height: 28px; display: block; }
+    .outcome .kicker {
+      display: block;
+      font-size: 12.5px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--blue-deep);
+      margin-bottom: 6px;
+    }
+    .outcome h3 { margin: 0 0 10px; font-size: 24px; line-height: 1.2; }
+    .outcome p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
+    .outcome .because {
+      margin-top: 16px; padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      font-size: 14px; color: var(--ink);
+    }
+    .outcome .because strong { color: var(--ink); }
+    .outcomes-foot {
+      text-align: center;
+      margin: 32px auto 0;
+      max-width: 560px;
+      font-size: 17px; font-weight: 600;
+      color: var(--ink);
+    }
+
     /* How it works */
     .steps {
       display: grid;
@@ -339,6 +384,7 @@
 
     @media (max-width: 760px) {
       .steps { grid-template-columns: 1fr; }
+      .outcomes { grid-template-columns: 1fr; }
       .chores { grid-template-columns: repeat(2, 1fr); }
       .chore:last-child { grid-column: span 2; }
       .nav-links { display: none; }
@@ -354,6 +400,7 @@
         CHORE<span class="b">BLOCK</span>
       </a>
       <nav class="nav-links">
+        <a href="#why">Why it works</a>
         <a href="#how">How it works</a>
         <a href="#chores">The chores</a>
         <a href="/privacy.html">Privacy</a>
@@ -372,6 +419,34 @@
     <a class="cta" href="mailto:hello@choreblock.app?subject=Notify%20me%20when%20ChoreBlock%20launches">Notify me at launch</a>
     <span class="cta-note">Coming soon to the App Store for iPhone.</span>
   </div>
+
+  <section id="why" class="alt">
+    <div class="wrap">
+      <h2>One lock. Two habits.</h2>
+      <p class="sub">ChoreBlock ties the thing you reach for (your apps) to the thing you keep putting off (the chores). Both change.</p>
+      <div class="outcomes">
+        <div class="outcome">
+          <div class="outcome-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/><path d="M3 9.5l2.5 2.5L9 8.5"/></svg>
+          </div>
+          <span class="kicker">Outcome one</span>
+          <h3>Less screen time</h3>
+          <p>The apps you open on autopilot are locked the moment a chore comes due. That mindless reach for your phone turns into a real question: is this scroll worth getting up for? Most of the time, it isn't — and the hours quietly come back.</p>
+          <p class="because"><strong>Why it sticks:</strong> the lock isn't a timer you can dismiss. It only opens for a verified photo.</p>
+        </div>
+        <div class="outcome">
+          <div class="outcome-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11.5 12 4l8.5 7.5"/><path d="M5.5 10v10h13V10"/><path d="M9.5 20v-6h5v6"/><path d="M18.5 3.5v2M17.5 4.5h2"/></svg>
+          </div>
+          <span class="kicker">Outcome two</span>
+          <h3>A cleaner home</h3>
+          <p>Chores stop piling up because they can't. The sink gets emptied, the bed gets made, the dog gets walked — not because you felt motivated, but because your feed was waiting on the other side. Tidy stops being a weekend project and becomes the default state.</p>
+          <p class="because"><strong>Why it sticks:</strong> each chore runs on its own rhythm, so nothing gets a chance to build up.</p>
+        </div>
+      </div>
+      <p class="outcomes-foot">The apps you love become the reward for the home you want.</p>
+    </div>
+  </section>
 
   <section id="how">
     <div class="wrap">
