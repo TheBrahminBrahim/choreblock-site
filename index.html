@@ -259,10 +259,10 @@
     .compare .verdict svg { width: 18px; height: 18px; display: block; }
 
     /* Chores */
-    #chores .wrap { max-width: 1240px; }
+    #chores .wrap { max-width: 1420px; }
     .chores {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 16px;
     }
     .chore {
@@ -320,6 +320,10 @@
       width: 28px; height: 28px; display: block;
       color: var(--blue);
     }
+    @media (max-width: 1100px) {
+      .chores { grid-template-columns: repeat(3, 1fr); }
+    }
+
     @media (max-width: 560px) {
       .privacy-strip .badges { grid-template-columns: 1fr; max-width: 280px; margin-left: auto; margin-right: auto; }
       .privacy-strip .badge { flex-direction: row; justify-content: flex-start; padding: 14px 16px; text-align: left; }
@@ -343,7 +347,7 @@
     @media (max-width: 760px) {
       .steps { grid-template-columns: 1fr; }
       .chores { grid-template-columns: repeat(2, 1fr); }
-      .chore:last-child { grid-column: span 2; }
+      .chore:last-child:nth-child(odd) { grid-column: span 2; }
       .nav-links { display: none; }
     }
   </style>
@@ -467,6 +471,13 @@
           <span class="label">
             <span class="name">Empty dishwasher</span>
             <span class="hint">Racks cleared out</span>
+          </span>
+        </div>
+        <div class="chore">
+          <img src="/img/trash.jpg" alt="An emptied kitchen bin with its lid open" loading="lazy" />
+          <span class="label">
+            <span class="name">Empty trash</span>
+            <span class="hint">Bag out, bin empty</span>
           </span>
         </div>
         <div class="chore">
