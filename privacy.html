@@ -96,6 +96,17 @@
       <p>
         Capture is camera-only: the app has no access to your photo library.
       </p>
+      <p>
+        To measure and improve how accurate the check is, we keep an
+        <strong>anonymous record of each check's result</strong> — which chore, whether it passed,
+        how sure the check was, a multiple-choice reason it didn't pass, how long it took, the hour
+        of day, which app version ran it and whether it was a test build, and a random code that
+        groups the retries within one visit to the camera (it is made up fresh each time, is not
+        saved on your phone, and cannot be traced to you) — plus a weekly count of how many checks
+        the app made. The record never includes the photo, the written feedback you see, your IP
+        address, or anything that identifies you or your device. It is stored in our own database,
+        hosted by Supabase.
+      </p>
 
       <h2>Screen Time data</h2>
       <p>
@@ -155,7 +166,8 @@
         device, deleting the app deletes your data. There is no user profile on our servers. The
         anonymous purchase records described under "Purchase and marketing
         measurement" contain nothing that identifies you, and we keep them only as long as we
-        need them for business and accounting records.
+        need them for business and accounting records. Anonymous check results are deleted
+        automatically after 90 days; only monthly totals are kept.
       </p>
 
       <h2>Children</h2>
@@ -172,6 +184,7 @@
 
       <h2>What changed</h2>
       <ul>
+        <li><strong>[Month] 2026 (not yet live):</strong> We now keep an anonymous record of each photo check's result (pass or fail, and why) and a weekly count of checks, to measure accuracy and cost. The photo itself is still never stored, and nothing is linked to you. See "Chore photos" above.</li>
         <li><strong>October 2026:</strong> We now receive anonymous purchase records (trials, subscriptions, renewals, refunds) from RevenueCat to see which of our marketing works. No name, email, or app data is included, and we don't track you. See "Purchase and marketing measurement" above.</li>
       </ul>
 
