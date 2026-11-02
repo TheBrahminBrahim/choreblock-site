@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — ChoreBlock</title>
-  <meta name="description" content="ChoreBlock privacy policy. Photos are verified and immediately discarded — never stored. Screen Time data never leaves your device." />
+  <meta name="description" content="ChoreBlock privacy policy. How chore photos are checked by Google's AI, what is and isn't kept, and why Screen Time data never leaves your device." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <style>
     :root {
@@ -71,7 +71,7 @@
   <main>
     <div class="wrap">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: October 22, 2026</p>
+      <p class="updated">Last updated: November 1, 2026</p>
 
       <p>
         ChoreBlock is built by Scarabyte. The app locks distracting apps until you complete a
@@ -80,18 +80,41 @@
       </p>
 
       <div class="callout">
-        <strong>The short version:</strong> your chore photos are checked and immediately deleted,
-        your app-usage settings never leave your phone, and we don't have user accounts, ads, or
+        <strong>The short version:</strong> with your permission, your chore photos go to Google's
+        AI to be checked. We don't keep them; Google may log them for up to 55 days to catch abuse.
+        Your app-usage settings never leave your phone, and we don't have user accounts, ads, or
         data sales. Ever.
       </div>
 
-      <h2>Chore photos</h2>
+      <h2>Chore photos and AI</h2>
       <p>
-        When you verify a chore, the photo you take is sent over an encrypted connection to our
-        verification service, where an AI model compares it to your reference photo and returns a
-        pass/fail result. The photo is <strong>discarded immediately after the check</strong> — it
-        is never stored on a server, never logged, never used to train AI models, and never seen by
-        a human. Your reference (baseline) photos are stored only on your device.
+        The app asks your permission before it sends your first photo. When you check a chore, the
+        photo you just took and your reference photo for that chore are sent over an encrypted
+        connection to our verification service, hosted by Supabase. It passes them to
+        <strong>Google's Gemini AI</strong>, which compares them and returns a pass or fail result.
+        Your name and account aren't sent with them, but please keep people and private papers out
+        of shot. When you set up a reference photo, it goes through the same check on its own.
+      </p>
+      <p>
+        <strong>What we do with them:</strong> our service doesn't save or log your photos. It
+        drops them as soon as the check finishes, the check photo is deleted from your phone, and
+        nobody at Scarabyte sees them. Your reference photos are saved only on your phone, and a
+        copy is sent with each check.
+      </p>
+      <p>
+        <strong>What Google does with them:</strong> we use Google's paid Gemini service, so Google
+        doesn't use your photos to improve its products. Under
+        <a href="https://ai.google.dev/gemini-api/terms" rel="noopener">its terms</a>, Google logs
+        what is sent for a limited time to detect abuse and meet legal requirements.
+        <a href="https://ai.google.dev/gemini-api/docs/usage-policies" rel="noopener">Its usage
+        policy</a> currently gives this as 55 days, and authorized Google staff may review anything
+        its systems flag. This data may be held temporarily in any country where Google has
+        facilities. We can't delete Google's copy, because nothing links a photo to you.
+      </p>
+      <p>
+        You can say no. Without permission no photos are sent, but chores can't be checked. To
+        withdraw permission later, use Delete All My Data in Settings, which also removes your
+        chores from the app.
       </p>
       <p>
         Capture is camera-only: the app has no access to your photo library.
@@ -146,8 +169,9 @@
       <h2>Crash reports</h2>
       <p>
         We use Sentry to collect crash reports and performance data so we can fix bugs. These
-        reports contain technical details about the crash (device model, OS version, what the app
-        was doing) — never photos or personal information. See
+        reports contain technical details about the crash: device model, OS version, battery and
+        memory state, what the app was doing, a random code for your install of the app, and your
+        approximate country. They never include your photos, name or email. See
         <a href="https://sentry.io/privacy/" rel="noopener">Sentry's privacy policy</a>.
       </p>
 
@@ -155,15 +179,17 @@
       <ul>
         <li>No user accounts — nothing to sign up for, nothing to breach</li>
         <li>No ads and no third-party ad tracking</li>
-        <li>No selling or sharing of personal data</li>
+        <li>No selling of personal data, and no sharing except with the service providers named on this page to run the app</li>
         <li>No location tracking, step counting, or motion sensors</li>
-        <li>No photo storage of any kind on our servers</li>
+        <li>No photo storage of any kind on our servers (see "Chore photos and AI" for Google's temporary log)</li>
       </ul>
 
       <h2>Data retention &amp; deletion</h2>
       <p>
-        Because chore photos are discarded at verification time and your settings live only on your
-        device, deleting the app deletes your data. There is no user profile on our servers. The
+        We don't keep chore photos after the check, and your settings and reference photos live only
+        on your device, so deleting the app deletes the data we hold about you there. Google's
+        temporary log is described under "Chore photos and AI". There is no user profile on our
+        servers. The
         anonymous purchase records described under "Purchase and marketing
         measurement" contain nothing that identifies you, and we keep them only as long as we
         need them for business and accounting records. Anonymous check results are deleted
@@ -184,6 +210,7 @@
 
       <h2>What changed</h2>
       <ul>
+        <li><strong>November 2026:</strong> We corrected this policy. It now names Google's Gemini as the AI that checks your photos and explains that Google may log them for up to 55 days. The app now asks your permission before sending your first photo. We also added what crash reports include: a random install code and your approximate country.</li>
         <li><strong>October 2026:</strong> We now keep an anonymous record of each photo check's result (pass or fail, and why) and a weekly count of checks, to measure accuracy and cost. The photo itself is still never stored, and nothing is linked to you. See "Chore photos" above.</li>
         <li><strong>October 2026:</strong> We now receive anonymous purchase records (trials, subscriptions, renewals, refunds) from RevenueCat to see which of our marketing works. No name, email, or app data is included, and we don't track you. See "Purchase and marketing measurement" above.</li>
       </ul>
